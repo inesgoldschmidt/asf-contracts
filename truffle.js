@@ -7,7 +7,7 @@ module.exports = {
             host: "localhost",
             port: 8545,
             network_id: "*", // Match any network id
-            gas: 46000000
+            // gas: 46000000
         },
         ropsten: {
             provider: function() {
@@ -39,5 +39,17 @@ module.exports = {
             network_id: "*",
             gas: 46000000
     	}
-    }
+    },
+    // Configure your compilers
+    compilers: {
+        solc: {
+            version: "0.4.24",    // Fetch exact version from solc-bin (default: truffle's version)
+            settings: {          // See the solidity docs for advice about optimization and evmVersion
+                optimizer: {
+                    enabled: false,
+                    runs: 1
+                },
+            }
+        },
+    },
 };

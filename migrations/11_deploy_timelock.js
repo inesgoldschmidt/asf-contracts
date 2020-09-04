@@ -8,10 +8,11 @@ module.exports = function(deployer, network) {
     switch (network) {
         case 'coverage':
         case 'development':
-            AppCoins.deployed()
-            .then(function() {
-                return deployer.deploy(AppCoinsTimelock, AppCoins.address, releaseTime);
-            })
+            deployer.deploy(AppCoinsTimelock, AppCoins.address, releaseTime);
+            // AppCoins.deployed()
+            // .then(function() {
+            //     return deployer.deploy(AppCoinsTimelock, AppCoins.address, releaseTime);
+            // })
 
             break;
 

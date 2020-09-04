@@ -3,17 +3,18 @@
 
 pragma solidity 0.4.24;
 
-contract ERC20Interface {
-    function name() public view returns(bytes32);
-    function symbol() public view returns(bytes32);
-    function balanceOf (address _owner) public view returns(uint256 balance);
-    function transfer(address _to, uint256 _value) public returns (bool success);
-    function transferFrom(address _from, address _to, uint256 _value) public returns (uint);
-    event Transfer(address indexed _from, address indexed _to, uint256 _value);
-}
+// contract ERC20Interface {
+//     function name() public view returns(bytes32);
+//     function symbol() public view returns(bytes32);
+//     function balanceOf (address _owner) public view returns(uint256 balance);
+//     function transfer(address _to, uint256 _value) public returns (bool success);
+//     function transferFrom(address _from, address _to, uint256 _value) public returns (uint);
+//     event Transfer(address indexed _from, address indexed _to, uint256 _value);
+// }
 
 
-contract AppCoins is ERC20Interface{
+// contract AppCoins is ERC20Interface{
+contract AppCoins {
     // Public variables of the token
     address public owner;
     bytes32 private token_name;
@@ -37,7 +38,7 @@ contract AppCoins is ERC20Interface{
      *
      * Initializes contract with initial supply tokens to the creator of the contract
      */
-    function AppCoins() public {
+    constructor() public {
         owner = msg.sender;
         token_name = "AppCoins";
         token_symbol = "APPC";

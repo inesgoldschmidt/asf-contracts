@@ -8,10 +8,12 @@ module.exports = async function(deployer, network) {
     switch (network) {
         case 'coverage':
         case 'development':
-            AppCoins.deployed()
-            .then(function() {
-                return deployer.deploy(AdvertisementFinance, AppCoins.address)
-            })
+            
+            deployer.deploy(AdvertisementFinance, AppCoins.address)
+            // AppCoins.deployed()
+            // .then(function() {
+            //     return deployer.deploy(AdvertisementFinance, AppCoins.address)
+            // })
 
             break;
 

@@ -9,16 +9,17 @@ module.exports = function(deployer, network) {
     switch (network) {
         case 'coverage':
         case 'development':
-            AppCoins.deployed()
-            .then(function() {
-                return ExtendedAdvertisementStorage.deployed()
-            })
-            .then(function() {
-                return ExtendedFinance.deployed().catch(console.log)
-            })
-            .then(function() {
-                return deployer.deploy(ExtendedAdvertisement, AppCoins.address, ExtendedAdvertisementStorage.address,ExtendedFinance.address);
-            });
+            deployer.deploy(ExtendedAdvertisement, AppCoins.address, ExtendedAdvertisementStorage.address,ExtendedFinance.address);
+            // AppCoins.deployed()
+            // .then(function() {
+            //     return ExtendedAdvertisementStorage.deployed()
+            // })
+            // .then(function() {
+            //     return ExtendedFinance.deployed().catch(console.log)
+            // })
+            // .then(function() {
+            //     return deployer.deploy(ExtendedAdvertisement, AppCoins.address, ExtendedAdvertisementStorage.address,ExtendedFinance.address);
+            // });
 
             break;
 

@@ -7,10 +7,11 @@ module.exports = function(deployer, network) {
     switch (network) {
         case 'coverage':
         case 'development':
-            AppCoins.deployed()
-            .then(function() {
-                return deployer.deploy(AppCoinsCreditsBalance, AppCoins.address);
-            })
+            deployer.deploy(AppCoinsCreditsBalance, AppCoins.address);
+            // AppCoins.deployed()
+            // .then(function() {
+            //     return deployer.deploy(AppCoinsCreditsBalance, AppCoins.address);
+            // })
 
             break;
 

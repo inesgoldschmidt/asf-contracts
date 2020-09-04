@@ -101,8 +101,10 @@ contract('Advertisement', function(accounts) {
 		TestUtils.setAppCoinsInstance(appcInstance);
 		TestUtils.setContractInstance(addInstance);
 
-		campaignPrice = 50000000000000000;
-		campaignBudget = 1000000000000000000;
+		campaignPrice = 500;
+		// campaignPrice = 50000000000000000;
+		campaignBudget = 100000;
+		// campaignBudget = 1000000000000000000;
 
 		var countryList = []
 
@@ -121,10 +123,10 @@ contract('Advertisement', function(accounts) {
 		await addInstance.createCampaign(packageName,countryList,[1,2],campaignPrice,campaignBudget,startDate,endDate);
 		
 		await appcInstance.transfer(accounts[1],campaignBudget);
-		countryList.push(convertCountryCodeToIndex("PT"))
-		countryList.push(convertCountryCodeToIndex("GB"))
-		countryList.push(convertCountryCodeToIndex("FR"))
-		countryList.push(convertCountryCodeToIndex("PA"))
+		// countryList.push(convertCountryCodeToIndex("PT"))
+		// countryList.push(convertCountryCodeToIndex("GB"))
+		// countryList.push(convertCountryCodeToIndex("FR"))
+		// countryList.push(convertCountryCodeToIndex("PA"))
 		await appcInstance.approve(addInstance.address,campaignBudget, { from: accounts[1]});
 		await addInstance.createCampaign(packageName,countryList,[1,2],campaignPrice,campaignBudget,startDate,endDate, { from : accounts[1]});
 
@@ -185,7 +187,7 @@ contract('Advertisement', function(accounts) {
 		countryList.push(convertCountryCodeToIndex("PT"))
 		countryList.push(convertCountryCodeToIndex("GB"))
 		countryList.push(convertCountryCodeToIndex("FR"))
-		countryList.push(convertCountryCodeToIndex("PA"))
+		// countryList.push(convertCountryCodeToIndex("PA"))
 
 		await appcInstance.approve(addInstance.address,campaignBudget);
 
@@ -235,7 +237,7 @@ contract('Advertisement', function(accounts) {
     	countryList.push(convertCountryCodeToIndex("PT"))
 		countryList.push(convertCountryCodeToIndex("GB"))
 		countryList.push(convertCountryCodeToIndex("FR"))
-		countryList.push(convertCountryCodeToIndex("PA"))
+		// countryList.push(convertCountryCodeToIndex("PA"))
 
 		var eventsInfo = addInstance.allEvents();
 		var packageName1 = "com.instagram.android";
@@ -321,6 +323,7 @@ contract('Advertisement', function(accounts) {
 			var countryList = [];
 			countryList.push(convertCountryCodeToIndex("GB"));
 			countryList.push(convertCountryCodeToIndex("FR"));
+			countryList.push(convertCountryCodeToIndex("PT"));
 			await addInstance.createCampaign.sendTransaction("org.telegram.messenger",countryList,[1,2],campaignPrice,campaignBudget,20,1922838059980);
 		})
 

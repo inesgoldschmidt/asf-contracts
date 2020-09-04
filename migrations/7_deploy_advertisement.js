@@ -10,16 +10,18 @@ module.exports = async function(deployer, network) {
     switch (network) {
         case 'coverage':
         case 'development':
-            AppCoins.deployed()
-            .then(function() {
-                return AdvertisementStorage.deployed()
-            })
-            .then(function() {
-                return AdvertisementFinance.deployed()
-            }).then( async function() {
-                await deployer.link(Shares, Advertisement);
-                return deployer.deploy(Advertisement, AppCoins.address, AdvertisementStorage.address,AdvertisementFinance.address);
-            });
+            deployer.link(Shares, Advertisement);
+            deployer.deploy(Advertisement, AppCoins.address, AdvertisementStorage.address,AdvertisementFinance.address);
+            // AppCoins.deployed()
+            // .then(function() {
+            //     return AdvertisementStorage.deployed()
+            // })
+            // .then(function() {
+            //     return AdvertisementFinance.deployed()
+            // }).then( async function() {
+            //     await deployer.link(Shares, Advertisement);
+            //     return deployer.deploy(Advertisement, AppCoins.address, AdvertisementStorage.address,AdvertisementFinance.address);
+            // });
 
             break;
 
